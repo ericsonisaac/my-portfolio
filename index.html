@@ -1,162 +1,728 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Isaac Ericson — Portfolio</title>
+    <meta name="description" content="Isaac Ericson — Medical student, space medicine researcher, and wilderness medicine leader at UCLA David Geffen School of Medicine." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<html>
-	<head>
-		<title>Isaac Ericson — Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<style>
-		img {color:white}
-			.left{float: left; border: 1px dotted black; margin: 0px 15px 0px 0px;}
-			.right{float: right; border: 1px dotted black; margin: 0px 15px 0px 0px;}
-	</style>
-	<body class="is-preload">
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #111111;
+            --bg-card-hover: #161616;
+            --border: #1e1e1e;
+            --text: #e0e0e0;
+            --text-muted: #888888;
+            --accent: #4a9eff;
+            --accent-dim: rgba(74, 158, 255, 0.1);
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+        html { scroll-behavior: smooth; }
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="icon fa-solid fa-rocket"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>ISAAC ERICSON</h1>
-								<p>MEDICAL STUDENT · SPACE MEDICINE RESEARCHER · WILDERNESS MEDICINE</p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#intro">Intro</a></li>
-								<li><a href="#work">Work</a></li>
-								<li><a href="#research">Research</a></li>
-								<li><a href="#education">Education</a></li>
-								<li><a href="#contacts">Contacts</a></li>
-							</ul>
-						</nav>
-					</header>
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
 
-				<!-- Main -->
-					<div id="main">
+        a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+        a:hover { opacity: 0.8; }
 
-						<!-- Intro -->
-							<article id="intro">
-								<h2 class="major">Hi, I'm Isaac.</h2>
-								<p><img src="images/squareheadshot.png" width="200" height="200" class="left"> I am a second-year medical student (MS2) at the UCLA David Geffen School of Medicine, with a Bachelor of Science in Physiological Science from UCLA (Class of 2023). Before medical school, I spent nearly two years as a Medical Intern at Space Exploration Technologies (SpaceX), where I designed the Dragon commercial medical kit and trained commercial astronaut crews for missions including Inspiration4 and Polaris Dawn.</p>
-								<p>My interests sit at the intersection of medicine, aerospace, and austere environments. I am passionate about space medicine, wilderness medicine, and trauma surgery, and I bring hands-on experience in operations management, medical equipment engineering, and clinical research. I'm driven by the challenge of delivering exceptional medical care in resource-limited and extreme settings — whether that's low Earth orbit, the backcountry, or a Level I trauma center.</p>
-							</article>
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+        }
 
-						<!-- Work -->
-							<article id="work">
-								<h2 class="major">Work</h2>
-								<span class="image main"><img src="images/pic01.jpeg" alt="" /></span>
+        nav .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
 
-								<h3><b>Medical Intern — SpaceX (2021–2023)</b></h3>
-								<p>At Space Exploration Technologies (SpaceX), I developed expertise in aerospace medical operations across multiple commercial spaceflight missions. Starting on the COVID-19 testing team, I quickly took on greater responsibility, volunteering for a critical research qualification sprint leading up to the groundbreaking Inspiration4 mission. I went on to spearhead the development and qualification of the SpaceX Medical Kit and manage research hardware programs across multiple missions.</p>
+        nav .logo {
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+        }
 
-								<h4>Medical Hardware Qualification and Training</h4>
-								<ul style="margin-left: 50px; line-height:180%">
-									<li>Managed INSCOP (on-orbit anti-emetic) research project for the all-civilian Inspiration4 mission (Summer/Fall 2021)</li>
-									<li>Led medical kit flight build and training for Axiom-1 mission, working with NASA counterparts to qualify to ISS toxicity standards (Winter 2022)</li>
-									<li>Developed new medical kit bag and internal organizational design for improved stowage, access, and repacking (Spring 2022)</li>
-									<li>Redesigned med kit per crew feedback to optimize usability and reduce volume by 50% (Summer/Fall 2022)</li>
-									<li>Eliminated a major requirement for flight pharmaceutical qualification testing, removing ~35 parts from scope (Fall 2022)</li>
-									<li>Led overhaul of medical equipment procurement and qualification for simplified and accelerated flight readiness, navigating DEA compliance (Fall 2022–Spring 2023)</li>
-								</ul>
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
 
-								<h4>Research Hardware — Qualification Ownership</h4>
-								<ul style="margin-left: 50px; line-height:180%">
-									<li>Selected for and led a research equipment qualification sprint for the all-civilian Inspiration4 mission, qualifying 30 pieces of hardware in 13 days and enabling 8 successful research projects (Fall 2021)</li>
-									<li>Developed receipt pathway and managed research qualification campaign for Polaris Dawn, responsible for ~75 research parts across 12 research projects (Spring 2022–Spring 2023)</li>
-								</ul>
+        nav ul li a {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
 
-								<h4>Other Contributions</h4>
-								<ul style="margin-left: 50px; line-height:180%">
-									<li>Poster presenter at the 2022 NASA Human Research Program Investigators' Workshop (HRP-IWS), discussing the INSCOP study focus, efficacy data, and lessons learned (Spring 2022)</li>
-									<li>Facilitated early development of company-wide COVID testing program automation, making testing accessible for 10,000 SpaceX employees across 4 primary facilities (Fall 2021)</li>
-								</ul>
+        nav ul li a:hover { color: var(--text); opacity: 1; }
 
-								<h3><b>Emergency Ward Clerk — Mammoth Hospital</b></h3>
-								<p>Gained clinical experience in a rural emergency department setting in the Eastern Sierra, supporting patient intake and ED operations in an austere, high-acuity environment.</p>
-							</article>
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
 
-						<!-- Research -->
-							<article id="research">
-								<h2 class="major">Research</h2>
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-								<h3><b>Space Medicine</b></h3>
-								<p>My primary research focus is on enabling long-duration human spaceflight through novel medical solutions.</p>
-								<ul style="margin-left: 50px; line-height:180%">
-									<li><b>On-Demand Peptide Therapeutics for Multi-Year Space Exploration</b> — First-author manuscript investigating pharmaceutical production using engineered <i>Bacillus subtilis</i> for autonomous drug manufacturing during deep-space missions. (Submitted for publication)</li>
-									<li><b>Direct Intracranial Pressure Measurement in Spaceflight</b> — Developed a proposal to SpaceX for direct ICP monitoring during orbital flight to address spaceflight-associated neuro-ocular syndrome (SANS).</li>
-									<li><b>INSCOP Anti-Emetic Study</b> — Managed on-orbit anti-emetic research for the Inspiration4 mission; presented findings at the 2022 NASA HRP-IWS conference.</li>
-								</ul>
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(74, 158, 255, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
 
-								<h3><b>Clinical Research</b></h3>
-								<ul style="margin-left: 50px; line-height:180%">
-									<li><b>Aortoesophageal Fistula Post-TEVAR</b> — Case report on a fatal aortoesophageal fistula following thoracic endovascular aortic repair. (In preparation)</li>
-								</ul>
+        .hero-content { position: relative; }
 
-								<h3><b>Leadership &amp; Interest Groups</b></h3>
-								<ul style="margin-left: 50px; line-height:180%">
-									<li>Co-Director, Aerospace Medicine Interest Group — UCLA DGSOM</li>
-									<li>Chair, Wilderness Medicine Interest Group — UCLA DGSOM</li>
-								</ul>
-							</article>
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
+        }
 
-						<!-- Education -->
-							<article id="education">
-								<h2 class="major">Education</h2>
-								<span class="image main"><img src="images/ucla.jpg" alt="" /></span>
+        .hero .tagline {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-muted);
+            font-weight: 300;
+            letter-spacing: 0.04em;
+            margin-bottom: 2.5rem;
+        }
 
-								<h3><b>UCLA David Geffen School of Medicine</b></h3>
-								<p>Doctor of Medicine (MD), Expected 2027</p>
-								<p>Currently an MS2 completing clinical clerkships, with rotations in neurosurgery, trauma surgery, and head &amp; neck surgery at Harbor-UCLA Medical Center. Actively preparing for USMLE Step examinations and exploring career paths in trauma surgery and emergency medicine.</p>
+        .hero .cta-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-								<h3><b>UCLA — B.S. Physiological Science (2023)</b></h3>
-								<p>Graduated with recognition as a Gold Shield Scholar and recipient of the UCLA Alumni Scholarship. Outside of academics, I competed as a varsity skipper on the UCLA Club Sailing team, served in the Student-Alumni Association coordinating events including Spring Sing 2022 (a campus-wide talent showcase for over 3,000 students), and worked as a part-time photographer covering athletic events.</p>
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text);
+        }
 
-								<h3><b>Certifications &amp; Training</b></h3>
-								<ul style="margin-left: 50px; line-height:180%">
-									<li>Advanced Open Water Diver &amp; Nitrox Certified (PADI)</li>
-									<li>Basic Life Support (BLS) &amp; CPR — American Red Cross</li>
-									<li>IRB Certificate in Biomedical Research</li>
-								</ul>
+        .btn:hover { background: var(--bg-card-hover); border-color: #333; opacity: 1; }
 
-								<h3><b>Community Engagement</b></h3>
-								<ul style="margin-left: 50px; line-height:180%">
-									<li>Outreach Lead, The Backpack Project (TBPLA) — coordinating resource distribution to unhoused communities in Los Angeles</li>
-								</ul>
-							</article>
+        .btn-primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #000;
+        }
 
-						<!-- Contacts -->
-							<article id="contacts">
-								<h2 class="major">Contacts</h2>
-								<p>If you have any questions or would like to connect, feel free to reach out to me at <u><b>702-423-2116</b></u> or send me an <a href="mailto:ericsonisaac@gmail.com"><u><b>email</b></u></a>.</p>
-							</article>
+        .btn-primary:hover { background: #5aabff; border-color: #5aabff; }
 
-					</div>
+        /* Sections */
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; Isaac Ericson, 2026.</p>
-					</footer>
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
 
-			</div>
+        section > h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 3rem;
+        }
 
-		<!-- BG -->
-			<div id="bg"></div>
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
 
-	</body>
+        .about-photo {
+            width: 240px;
+            height: 240px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 1px solid var(--border);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .about-text p:last-child { margin-bottom: 0; }
+
+        /* Experience cards */
+        .exp-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            background: var(--bg-card);
+            transition: border-color 0.2s;
+        }
+
+        .exp-card:hover { border-color: #2a2a2a; }
+
+        .exp-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .exp-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .exp-card .date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .exp-card .role {
+            font-size: 0.95rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .exp-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .exp-card ul li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .exp-card ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.65em;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #333;
+        }
+
+        /* Research */
+        .research-item {
+            border-left: 2px solid var(--border);
+            padding: 1.25rem 0 1.25rem 1.5rem;
+            margin-bottom: 0.5rem;
+            transition: border-color 0.2s;
+        }
+
+        .research-item:hover { border-color: var(--accent); }
+
+        .research-item h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+        }
+
+        .research-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .research-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            background: var(--accent-dim);
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Education */
+        .edu-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: start;
+        }
+
+        .edu-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .edu-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .edu-item .subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .cert-item {
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg-card);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cert-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* Leadership */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .leadership-card {
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-card);
+        }
+
+        .leadership-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .leadership-card .role {
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .leadership-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Contact */
+        .contact-section {
+            text-align: center;
+            padding: 6rem 2rem 8rem;
+        }
+
+        .contact-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-card);
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .contact-link:hover { border-color: #333; background: var(--bg-card-hover); opacity: 1; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            nav ul.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(20px);
+                padding: 1rem 2rem 1.5rem;
+                gap: 0.5rem;
+                border-bottom: 1px solid var(--border);
+            }
+            .mobile-toggle { display: block; }
+            .about-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+            .about-photo { width: 180px; height: 180px; }
+            .exp-card-header { flex-direction: column; }
+            .leadership-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <div class="logo">Isaac Ericson</div>
+            <button class="mobile-toggle" aria-label="Toggle menu">&#9776;</button>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Isaac Ericson</h1>
+            <p class="tagline">Medical Student &middot; Space Medicine Researcher &middot; Wilderness Medicine</p>
+            <div class="cta-row">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="#experience" class="btn">View Experience</a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- About -->
+    <section id="about" class="fade-in">
+        <div class="section-label">About</div>
+        <h2>Hi, I'm Isaac.</h2>
+        <div class="about-grid">
+            <img src="images/squareheadshot.png" alt="Isaac Ericson" class="about-photo" />
+            <div class="about-text">
+                <p>I'm a medical student at the UCLA David Geffen School of Medicine (Class of 2028), currently completing clinical clerkships. Before medical school, I spent nearly two years as a Medical Intern at SpaceX, where I designed the Dragon commercial medical kit and trained astronaut crews for missions including Inspiration4 and Polaris Dawn.</p>
+                <p>My interests sit at the intersection of medicine, aerospace, and austere environments. I'm passionate about space medicine, wilderness medicine, and trauma surgery &mdash; driven by the challenge of delivering exceptional medical care in resource-limited and extreme settings, whether that's low Earth orbit, the backcountry, or a Level I trauma center.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Experience -->
+    <section id="experience" class="fade-in">
+        <div class="section-label">Experience</div>
+        <h2>Where I've Worked</h2>
+
+        <div class="exp-card">
+            <div class="exp-card-header">
+                <h3>Space Exploration Technologies (SpaceX)</h3>
+                <span class="date">June 2021 &ndash; May 2023</span>
+            </div>
+            <div class="role">Medical Intern &mdash; Hawthorne, CA</div>
+            <ul>
+                <li>Designed and developed the SpaceX Dragon commercial medical kit used across all private missions, including the all-civilian Inspiration4, Axiom ISS missions, and the Polaris program</li>
+                <li>Led four commercial astronaut crews in hands-on medical training for on-orbit emergency scenarios</li>
+                <li>Executed Inspiration4 research qualification sprint, qualifying 30 pieces of hardware in 13 days and enabling 8 successful research projects</li>
+                <li>Managed the Polaris Dawn research qualification campaign &mdash; ~75 research parts across 12 research projects</li>
+                <li>Project manager for the INSCOP on-orbit anti-emetic study; presented findings at the 2022 NASA HRP Investigators' Workshop</li>
+                <li>Redesigned medical kit per crew feedback, reducing volume by 50% and improving usability</li>
+                <li>Eliminated a major pharmaceutical flight qualification requirement, removing ~35 parts from scope</li>
+                <li>Led overhaul of medical equipment procurement and qualification, navigating DEA compliance for controlled substances</li>
+                <li>Facilitated early development of company-wide COVID-19 testing program automation for 10,000 employees across 4 facilities</li>
+            </ul>
+        </div>
+
+        <div class="exp-card">
+            <div class="exp-card-header">
+                <h3>Mammoth Hospital Emergency Department</h3>
+                <span class="date">August 2023 &ndash; August 2024</span>
+            </div>
+            <div class="role">Emergency Ward Clerk &mdash; Mammoth Lakes, CA</div>
+            <ul>
+                <li>Initial point of contact for patients in a rural, high-acuity emergency department in the Eastern Sierra</li>
+                <li>Responsible for patient intake, assessment of primary complaint, and assisting in basic elements of patient care</li>
+                <li>Managed payment collections and connected patients with alternative payment avenues and financial assistance</li>
+            </ul>
+        </div>
+
+        <div class="exp-card">
+            <div class="exp-card-header">
+                <h3>Synergy Health Inc.</h3>
+                <span class="date">June &ndash; July 2020</span>
+            </div>
+            <div class="role">Medical Intern &mdash; Hiawassee, GA</div>
+            <ul>
+                <li>Rural clinic rotation under Dr. Samuel Church, MD, MPH</li>
+                <li>Performed patient intake, primary assessment, and contributed to healthcare delivery optimization during COVID-19</li>
+            </ul>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Research -->
+    <section id="research" class="fade-in">
+        <div class="section-label">Research</div>
+        <h2>Research &amp; Publications</h2>
+
+        <div class="research-item">
+            <span class="research-tag">Space Medicine</span>
+            <h3>On-Demand Peptide Therapeutics for Multi-Year Space Exploration</h3>
+            <p>First-author manuscript investigating pharmaceutical production using engineered <em>Bacillus subtilis</em> for autonomous drug manufacturing during deep-space missions. Submitted for publication.</p>
+        </div>
+
+        <div class="research-item">
+            <span class="research-tag">Space Medicine</span>
+            <h3>Direct Intracranial Pressure Measurement in Spaceflight</h3>
+            <p>Developed a proposal to SpaceX for direct ICP monitoring during orbital flight to address spaceflight-associated neuro-ocular syndrome (SANS).</p>
+        </div>
+
+        <div class="research-item">
+            <span class="research-tag">Space Medicine</span>
+            <h3>INSCOP Anti-Emetic Study</h3>
+            <p>Managed on-orbit anti-emetic research for the Inspiration4 mission. Presented findings at the 2022 NASA Human Research Program Investigators' Workshop.</p>
+        </div>
+
+        <div class="research-item">
+            <span class="research-tag">Clinical</span>
+            <h3>Aortoesophageal Fistula Post-TEVAR</h3>
+            <p>Case report on a fatal aortoesophageal fistula following thoracic endovascular aortic repair. In preparation.</p>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Education -->
+    <section id="education" class="fade-in">
+        <div class="section-label">Education</div>
+        <h2>Education</h2>
+
+        <div class="edu-item">
+            <div class="edu-icon">&#127891;</div>
+            <div>
+                <h3>UCLA David Geffen School of Medicine</h3>
+                <p class="subtitle">Doctor of Medicine (MD) &mdash; Class of 2028</p>
+                <p class="subtitle" style="margin-top: 0.3rem; color: var(--text-muted); font-size: 0.9rem;">Currently completing clinical clerkships. Rotations in emergency medicine, neurosurgery, trauma surgery, and head &amp; neck surgery. Preparing for USMLE Step examinations.</p>
+            </div>
+        </div>
+
+        <div class="edu-item">
+            <div class="edu-icon">&#127891;</div>
+            <div>
+                <h3>UCLA &mdash; B.S. Physiological Science</h3>
+                <p class="subtitle">Class of 2023 &middot; Gold Shield Scholar &middot; UCLA Alumni Scholarship</p>
+                <p class="subtitle" style="margin-top: 0.3rem; color: var(--text-muted); font-size: 0.9rem;">Varsity skipper on the UCLA Club Sailing team. Student-Alumni Association, coordinating events including Spring Sing 2022.</p>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 2.5rem; margin-bottom: 1.25rem; font-size: 1.1rem;">Certifications</h3>
+        <div class="cert-grid">
+            <div class="cert-item"><span class="cert-dot"></span>Wilderness First Responder (WFR)</div>
+            <div class="cert-item"><span class="cert-dot"></span>IRB Certified &mdash; Biomedical Research, Human Subjects (CITI Program)</div>
+            <div class="cert-item"><span class="cert-dot"></span>BLS / CPR / First Aid / Emergency Oxygen &mdash; American Red Cross</div>
+            <div class="cert-item"><span class="cert-dot"></span>SDI Advanced Open Water Diver &amp; Nitrox Certification</div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Leadership -->
+    <section id="leadership" class="fade-in">
+        <div class="section-label">Leadership &amp; Service</div>
+        <h2>Leadership</h2>
+        <div class="leadership-grid">
+            <div class="leadership-card">
+                <h3>Aerospace Medicine Interest Group</h3>
+                <div class="role">Co-Director &mdash; UCLA DGSOM, 2024&ndash;Present</div>
+                <p>Created intercollegiate monthly didactics with leaders in aerospace medicine, establishing UCLA as a space medicine hub.</p>
+            </div>
+            <div class="leadership-card">
+                <h3>Wilderness Medicine Interest Group</h3>
+                <div class="role">Founder &amp; Chair &mdash; UCLA DGSOM, 2024&ndash;Present</div>
+                <p>Founded WMIG to address unmet need for austere and limited-resource medicine education. Organizing Wilderness First Responder courses and the Catalina Capstone Course.</p>
+            </div>
+            <div class="leadership-card">
+                <h3>The Backpack Project (TBPLA)</h3>
+                <div class="role">Outreach Lead</div>
+                <p>Coordinating resource distribution to unhoused communities across Los Angeles.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section fade-in">
+        <div class="section-label">Contact</div>
+        <h2>Let's Connect</h2>
+        <p>Whether you're interested in space medicine, research collaboration, or just want to say hello &mdash; I'd love to hear from you.</p>
+        <div class="contact-links">
+            <a href="mailto:ericsonisaac@gmail.com" class="contact-link">&#9993;&ensp;ericsonisaac@gmail.com</a>
+            <a href="tel:+17024232116" class="contact-link">&#9742;&ensp;(702) 423-2116</a>
+            <a href="https://linkedin.com/in/isaacmericson" target="_blank" rel="noopener" class="contact-link">&#128279;&ensp;LinkedIn</a>
+            <a href="https://github.com/ericsonisaac" target="_blank" rel="noopener" class="contact-link">&#128187;&ensp;GitHub</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; Isaac Ericson, 2026.
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function () {
+            document.querySelector('nav ul').classList.toggle('open');
+        });
+
+        // Close mobile nav on link click
+        document.querySelectorAll('nav ul a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                document.querySelector('nav ul').classList.remove('open');
+            });
+        });
+
+        // Scroll fade-in
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(function (el) {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
 </html>
